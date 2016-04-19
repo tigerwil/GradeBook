@@ -71,6 +71,7 @@
     <None Include="GradeBookDiagram.cd" />
     <None Include="slides\GradeBook.pdf" />
     <Content Include="slides\OOP.txt" />
+    <None Include="slides\GradeBook2.pdf" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
