@@ -45,20 +45,61 @@ namespace GradeBook
             //the GradeBook object reprepresented by book
             GradeBook book = new GradeBook();
 
+            book.NameChanged += OnNameChanged2;
+            book.NameChanged += OnNameChanged;
+            book.NameChanged += OnNameChanged2;
+
             //Add some random grades;
             book.AddGrade(91);
             book.AddGrade(89.5f);//explicitly convert double 89.5 to float by adding f
             book.AddGrade(75);
 
+            book.Name = "Welcome to Marc's Gradebook"; //set
+            Console.WriteLine(book.Name); //get
+
             //Get the stats and write out results to screen
             GradeStatistics stats = book.ComputeStatistics();
-            Console.WriteLine("Average Grade: " + stats.AverageGrade);
-            Console.WriteLine("Highest Grade: "+ stats.HighestGrade);
-            Console.WriteLine("Lowest Grade: " + stats.LowestGrade);
+
+
+            WriteResult("Average Grade", stats.AverageGrade);
+            WriteResult("Lowest Grade", stats.LowestGrade);
+            WriteResult("Highest Grade", (int)stats.HighestGrade);
+
+            book.Name = "Gradebook finished computing stats.";
+
+
             Console.WriteLine("Press any key to exit program");
             Console.ReadKey();
 
 
+        }
+
+
+        private static void WriteResult(string description, float result)
+        {
+            Console.WriteLine("{0}: {1:F2}", description, result);
+        }
+
+        //overload 
+        private static void WriteResult(string description, int result)
+        {
+            Console.WriteLine("{0}: {1:F2}", description, result);
+        }
+
+
+        //Delegate Events
+        static void OnNameChanged(object sender, NameChangedEventArgs args)
+        {
+            //Using an interpolated string expression:  
+            //Creates a string by replacing the contained expression(s)
+            Console.WriteLine($"Grade book changed name from {args.existingName} to {args.newName}.");
+        }
+
+        static void OnNameChanged2(object sender, NameChangedEventArgs args)
+        {
+            //Using an interpolated string expression:  
+            //Creates a string by replacing the contained expression(s)
+            Console.WriteLine("************************************************************");
         }
     }
 }
