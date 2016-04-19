@@ -1,0 +1,26 @@
+	- Methods define behavior,they are a place where we can write code and we can 
+         invoke a method to execute that code inside.
+
+	- Every method has an access modifier, the default is private where the 
+         method is only available to other code inside of the same class.
+
+	- We can a method as internal to make it available to all the code inside of 
+          the same project, or use the public keyword to make the method available everywhere.
+
+	- Every method also has a return type or void meaning that the method 
+           does not return a value. 
+
+	- Every method has 0 or more parameters
+
+	- Use params keyword to accept a variable number of parameters, because sometimes 
+          you might not know how many parameters a method will need.
+          (this is not something you want to use on a regular basis, but extremely useful 
+          in some scenarios)
+
+	- Every method has a signature (Name of the method + parameters with type).  
+          This allows the C# compiler to distinguish between methods with 
+          the same name but taking different parameters and or types. 
+          Note:  the return type is not part of the signature.
+ 
+          You have many methods named the same as long as the parameter lists are unique.  
+          This is a feature called Method Overloading
